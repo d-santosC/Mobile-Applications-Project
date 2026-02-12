@@ -1,0 +1,718 @@
+@startuml
+class com.example.mywins.database.user.User {
+- java.lang.String email
+- java.lang.String name
+- java.lang.String profilePictureUri
++ java.lang.String getEmail()
++ java.lang.String getName()
++ java.lang.String getProfilePictureUri()
++ java.lang.String component1()
++ java.lang.String component2()
++ java.lang.String component3()
++ com.example.mywins.database.user.User copy(java.lang.String,java.lang.String,java.lang.String)
++ boolean equals(java.lang.Object)
++ int hashCode()
++ java.lang.String toString()
+}
+
+
+class com.example.mywins.database.goal.Goal {
+}
+class com.example.mywins.database.activityEvent.ActivityEvent {
+}
+interface com.example.mywins.database.like.LikeDao {
++ {abstract}java.lang.Object addLike(com.example.mywins.database.like.Like,kotlin.coroutines.Continuation<? super kotlin.Unit>)
++ {abstract}java.lang.Object getLikeCount(int,kotlin.coroutines.Continuation<? super java.lang.Integer>)
++ {abstract}java.lang.Object hasUserLiked(int,java.lang.String,kotlin.coroutines.Continuation<? super com.example.mywins.database.like.Like>)
+}
+
+class com.example.mywins.ExampleInstrumentedTest {
++ void useAppContext()
+}
+
+class com.example.mywins.utils.Converters {
++ java.lang.String fromUri(android.net.Uri)
++ android.net.Uri toUri(java.lang.String)
+}
+
+interface com.example.mywins.database.goal.GoalDao {
++ {abstract}java.lang.Object insert(com.example.mywins.database.goal.Goal,kotlin.coroutines.Continuation<? super kotlin.Unit>)
++ {abstract}java.lang.Object getAll(kotlin.coroutines.Continuation<? super java.util.List<com.example.mywins.database.goal.Goal>>)
++ {abstract}java.lang.Object getById(int,kotlin.coroutines.Continuation<? super com.example.mywins.database.goal.Goal>)
++ {abstract}java.lang.Object getAllForUser(java.lang.String,kotlin.coroutines.Continuation<? super java.util.List<com.example.mywins.database.goal.Goal>>)
++ {abstract}java.lang.Object getDoneGoalsForUser(java.lang.String,kotlin.coroutines.Continuation<? super java.util.List<com.example.mywins.database.goal.Goal>>)
++ {abstract}java.lang.Object getPendingGoalsForUser(java.lang.String,kotlin.coroutines.Continuation<? super java.util.List<com.example.mywins.database.goal.Goal>>)
++ {abstract}java.lang.Object update(com.example.mywins.database.goal.Goal,kotlin.coroutines.Continuation<? super kotlin.Unit>)
++ {abstract}java.lang.Object delete(com.example.mywins.database.goal.Goal,kotlin.coroutines.Continuation<? super kotlin.Unit>)
+}
+
+class com.example.mywins.database.user.UserDao_Impl {
+- RoomDatabase __db
+- EntityInsertAdapter<User> __insertAdapterOfUser
++ Object insertUser(User,Continuation<? super Unit>)
++ Object getUserByEmail(String,Continuation<? super User>)
++ {static} List<Class<?>> getRequiredConverters()
+}
+
+
+interface com.example.mywins.database.like.LikeDao {
++ void addLike(Like)
++ Int getLikeCount(Int)
++ Like? hasUserLiked(Int,String)
+}
+
+class com.example.mywins.database.goal.GoalRepository {
+- com.example.mywins.database.AppDatabase db
+- com.example.mywins.database.goal.GoalDao dao
++ java.lang.Object insertGoal(com.example.mywins.database.goal.Goal,kotlin.coroutines.Continuation<? super kotlin.Unit>)
++ java.lang.Object getAllGoals(kotlin.coroutines.Continuation<? super java.util.List<com.example.mywins.database.goal.Goal>>)
++ java.lang.Object getGoalById(int,kotlin.coroutines.Continuation<? super com.example.mywins.database.goal.Goal>)
++ java.lang.Object updateGoal(com.example.mywins.database.goal.Goal,kotlin.coroutines.Continuation<? super kotlin.Unit>)
++ java.lang.Object getAllGoalsForUser(java.lang.String,kotlin.coroutines.Continuation<? super java.util.List<com.example.mywins.database.goal.Goal>>)
++ java.lang.Object getDoneGoalsForUser(java.lang.String,kotlin.coroutines.Continuation<? super java.util.List<com.example.mywins.database.goal.Goal>>)
++ java.lang.Object getPendingGoalsForUser(java.lang.String,kotlin.coroutines.Continuation<? super java.util.List<com.example.mywins.database.goal.Goal>>)
++ java.lang.Object deleteGoal(com.example.mywins.database.goal.Goal,kotlin.coroutines.Continuation<? super kotlin.Unit>)
++ java.lang.Object insertActivityEventIfPublic(com.example.mywins.database.goal.Goal,java.lang.String,kotlin.coroutines.Continuation<? super kotlin.Unit>)
+}
+
+
+class com.example.mywins.utils.Converters {
++ String? fromUri(Uri?)
++ Uri? toUri(String?)
+}
+
+interface com.example.mywins.database.user.UserDao {
++ void insertUser(User)
++ User? getUserByEmail(String)
+}
+
+class com.example.mywins.goal.AddGoalScreenKt {
++ {static} void AddGoalScreen(androidx.navigation.NavController)
+}
+
+class com.example.mywins.database.goal.GoalDao_Impl {
+- RoomDatabase __db
+- EntityInsertAdapter<Goal> __insertAdapterOfGoal
+- EntityDeleteOrUpdateAdapter<Goal> __deleteAdapterOfGoal
+- EntityDeleteOrUpdateAdapter<Goal> __updateAdapterOfGoal
++ Object insert(Goal,Continuation<? super Unit>)
++ Object delete(Goal,Continuation<? super Unit>)
++ Object update(Goal,Continuation<? super Unit>)
++ Object getAll(Continuation<? super List<Goal>>)
++ Object getById(int,Continuation<? super Goal>)
++ Object getAllForUser(String,Continuation<? super List<Goal>>)
++ Object getDoneGoalsForUser(String,Continuation<? super List<Goal>>)
++ Object getPendingGoalsForUser(String,Continuation<? super List<Goal>>)
++ {static} List<Class<?>> getRequiredConverters()
+}
+
+
+class com.example.mywins.profile.EditProfileScreenKt {
++ {static} void EditProfileScreen(androidx.navigation.NavController)
+}
+
+class com.example.mywins.MainActivityKt {
++ {static} void AppNavigator()
+}
+
+interface com.example.mywins.database.friendships.FriendshipsDao {
++ {abstract}java.lang.Object addFriendship(com.example.mywins.database.friendships.Friendship,kotlin.coroutines.Continuation<? super kotlin.Unit>)
++ {abstract}java.lang.Object getFriendsOfUser(java.lang.String,kotlin.coroutines.Continuation<? super java.util.List<java.lang.String>>)
++ {abstract}java.lang.Object removeFriendship(java.lang.String,java.lang.String,kotlin.coroutines.Continuation<? super kotlin.Unit>)
+}
+
+class com.example.mywins.database.Streak {
+}
+class com.example.mywins.ui.theme.ColorKt {
+- {static} long Purple80
+- {static} long PurpleGrey80
+- {static} long Pink80
+- {static} long Purple40
+- {static} long PurpleGrey40
+- {static} long Pink40
+- {static} long Purple
+- {static} long Teal
+- {static} long Orange
++ {static} long getPurple80()
++ {static} long getPurpleGrey80()
++ {static} long getPink80()
++ {static} long getPurple40()
++ {static} long getPurpleGrey40()
++ {static} long getPink40()
++ {static} long getPurple()
++ {static} long getTeal()
++ {static} long getOrange()
+}
+
+
+abstract class com.example.mywins.database.AppDatabase {
+- {static} com.example.mywins.database.AppDatabase instance
++ {static} com.example.mywins.database.AppDatabase.Companion Companion
++ {abstract}com.example.mywins.database.user.UserDao userDao()
++ {abstract}com.example.mywins.database.goal.GoalDao goalDao()
++ {abstract}com.example.mywins.database.activityEvent.ActivityEventDao activityEventDao()
++ {abstract}com.example.mywins.database.like.LikeDao likeDao()
++ {abstract}com.example.mywins.database.comment.CommentDao commentDao()
++ {abstract}com.example.mywins.database.friendships.FriendshipsDao friendshipsDao()
++ {abstract}com.example.mywins.database.friendships.FriendRequestDao friendRequestDao()
+}
+
+
+class com.example.mywins.database.AppDatabase$Companion {
++ com.example.mywins.database.AppDatabase getInstance(android.content.Context)
+}
+
+class com.example.mywins.database.comment.Comment {
+}
+class com.example.mywins.goal.EditGoalScreenKt {
++ {static} void EditGoalScreen(androidx.navigation.NavController,com.example.mywins.database.goal.Goal)
+}
+
+class com.example.mywins.ui.theme.TypeKt {
+- {static} androidx.compose.material3.Typography Typography
++ {static} androidx.compose.material3.Typography getTypography()
+}
+
+
+abstract class com.example.mywins.Screen {
+- java.lang.String route
++ java.lang.String getRoute()
+}
+
+
+class com.example.mywins.Screen$EditGoal {
++ {static} com.example.mywins.Screen.EditGoal INSTANCE
+}
+
+class com.example.mywins.Screen$Friends {
++ {static} com.example.mywins.Screen.Friends INSTANCE
+}
+
+class com.example.mywins.Screen$Login {
++ {static} com.example.mywins.Screen.Login INSTANCE
+}
+
+class com.example.mywins.Screen$Main {
++ {static} com.example.mywins.Screen.Main INSTANCE
+}
+
+class com.example.mywins.Screen$Profile {
++ {static} com.example.mywins.Screen.Profile INSTANCE
+}
+
+class com.example.mywins.Screen$SignUp {
++ {static} com.example.mywins.Screen.SignUp INSTANCE
+}
+
+class com.example.mywins.Screen$Statistics {
++ {static} com.example.mywins.Screen.Statistics INSTANCE
+}
+
+class com.example.mywins.database.friendships.Friendship {
+- java.lang.String userEmail
+- java.lang.String friendEmail
++ java.lang.String getUserEmail()
++ java.lang.String getFriendEmail()
++ java.lang.String component1()
++ java.lang.String component2()
++ com.example.mywins.database.friendships.Friendship copy(java.lang.String,java.lang.String)
++ boolean equals(java.lang.Object)
++ int hashCode()
++ java.lang.String toString()
+}
+
+
+class com.example.mywins.database.goal.Goal {
+- int id
+- java.lang.String name
+- java.lang.String category
+- java.lang.String frequency
+- boolean isPublic
+- boolean done
+- java.lang.String createdDate
+- java.lang.String userEmail
+- java.lang.String doneDate
+- java.lang.String customDate
++ int getId()
++ java.lang.String getName()
++ java.lang.String getCategory()
++ java.lang.String getFrequency()
++ boolean isPublic()
++ boolean getDone()
++ java.lang.String getCreatedDate()
++ java.lang.String getUserEmail()
++ java.lang.String getDoneDate()
++ java.lang.String getCustomDate()
++ int component1()
++ java.lang.String component10()
++ java.lang.String component2()
++ java.lang.String component3()
++ java.lang.String component4()
++ boolean component5()
++ boolean component6()
++ java.lang.String component7()
++ java.lang.String component8()
++ java.lang.String component9()
++ com.example.mywins.database.goal.Goal copy(int,java.lang.String,java.lang.String,java.lang.String,boolean,boolean,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
++ boolean equals(java.lang.Object)
++ int hashCode()
++ java.lang.String toString()
+}
+
+
+class com.example.mywins.ScreenRoute {
+- java.lang.String route
++ java.lang.String getRoute()
++ boolean equals(java.lang.Object)
++ int hashCode()
++ java.lang.String toString()
+}
+
+
+class com.example.mywins.ExampleUnitTest {
++ void addition_isCorrect()
+}
+
+class error.NonExistentClass {
+}
+interface com.example.mywins.database.activityEvent.ActivityEventDao {
++ void insertEvent(ActivityEvent)
++ List<ActivityEvent> getEventsFromFriends(List<String>)
+}
+
+interface com.example.mywins.database.activityEvent.ActivityEventDao {
++ {abstract}java.lang.Object insertEvent(com.example.mywins.database.activityEvent.ActivityEvent,kotlin.coroutines.Continuation<? super kotlin.Unit>)
++ {abstract}java.lang.Object getEventsFromFriends(java.util.List<java.lang.String>,kotlin.coroutines.Continuation<? super java.util.List<com.example.mywins.database.activityEvent.ActivityEvent>>)
+}
+
+class com.example.mywins.friends.FriendEventCardKt {
++ {static} void FriendEventCard(com.example.mywins.database.activityEvent.ActivityEvent,com.example.mywins.database.user.User,java.lang.String,java.util.Map<java.lang.String,com.example.mywins.database.user.User>)
+}
+
+class com.example.mywins.database.friendships.Friendship {
+}
+class com.example.mywins.database.activityEvent.ActivityEvent {
+- int id
+- java.lang.String userEmail
+- java.lang.String type
+- java.lang.String goalName
+- long timestamp
++ int getId()
++ java.lang.String getUserEmail()
++ java.lang.String getType()
++ java.lang.String getGoalName()
++ long getTimestamp()
++ int component1()
++ java.lang.String component2()
++ java.lang.String component3()
++ java.lang.String component4()
++ long component5()
++ com.example.mywins.database.activityEvent.ActivityEvent copy(int,java.lang.String,java.lang.String,java.lang.String,long)
++ boolean equals(java.lang.Object)
++ int hashCode()
++ java.lang.String toString()
+}
+
+
+class com.example.mywins.profile.ProfileScreenKt {
++ {static} void ProfileScreen(androidx.navigation.NavController)
+}
+
+class error.NonExistentClass {
+}
+class com.example.mywins.database.AppDatabase_Impl {
+- UserDao _userDao
+- GoalDao _goalDao
+- ActivityEventDao _activityEventDao
+- LikeDao _likeDao
+- CommentDao _commentDao
+- FriendshipsDao _friendshipsDao
+- FriendRequestDao _friendRequestDao
+# RoomOpenDelegate createOpenDelegate()
+# InvalidationTracker createInvalidationTracker()
++ void clearAllTables()
+# Map<Class<?>,List<Class<?>>> getRequiredTypeConverters()
++ Set<Class<? extends AutoMigrationSpec>> getRequiredAutoMigrationSpecs()
++ List<Migration> getAutoMigrations(Map<Class<? extends AutoMigrationSpec>,AutoMigrationSpec>)
++ UserDao userDao()
++ GoalDao goalDao()
++ ActivityEventDao activityEventDao()
++ LikeDao likeDao()
++ CommentDao commentDao()
++ FriendshipsDao friendshipsDao()
++ FriendRequestDao friendRequestDao()
+}
+
+
+class com.example.mywins.database.goal.GoalRepository {
+-  db
+-  dao
++ void insertGoal(Goal)
++ void getAllGoals()
++ void getGoalById(Int)
++ void updateGoal(Goal)
++ void getAllGoalsForUser(String)
++ void getDoneGoalsForUser(String)
++ void getPendingGoalsForUser(String)
++ void deleteGoal(Goal)
++ void insertActivityEventIfPublic(Goal,String)
+}
+
+
+class com.example.mywins.database.like.Like {
+- int id
+- int eventId
+- java.lang.String userEmail
++ int getId()
++ int getEventId()
++ java.lang.String getUserEmail()
++ int component1()
++ int component2()
++ java.lang.String component3()
++ com.example.mywins.database.like.Like copy(int,int,java.lang.String)
++ boolean equals(java.lang.Object)
++ int hashCode()
++ java.lang.String toString()
+}
+
+
+class com.example.mywins.login_register.LoginScreenKt {
++ {static} void LoginScreen(androidx.navigation.NavController)
+}
+
+class com.example.mywins.database.Streak {
+- int goalId
+- int daysCompleted
++ int getGoalId()
++ int getDaysCompleted()
++ int component1()
++ int component2()
++ com.example.mywins.database.Streak copy(int,int)
++ boolean equals(java.lang.Object)
++ int hashCode()
++ java.lang.String toString()
+}
+
+
+class com.example.mywins.database.user.User {
+}
+class com.example.mywins.MainActivity {
++ void onCreate(Bundle?)
+}
+
+class error.NonExistentClass {
+}
+class com.example.mywins.login_register.SignUpScreenKt {
++ {static} void SignUpScreen(androidx.navigation.NavController)
++ {static} java.lang.String copyUriToInternalStorage(android.content.Context,android.net.Uri,java.lang.String)
+}
+
+class com.example.mywins.MainActivity {
+# void onCreate(android.os.Bundle)
+}
+
+class com.example.mywins.Screen$Login {
+}
+class com.example.mywins.Screen$SignUp {
+}
+class com.example.mywins.Screen$Main {
+}
+class com.example.mywins.Screen$EditGoal {
+}
+class com.example.mywins.Screen$Statistics {
+}
+class com.example.mywins.Screen$Friends {
+}
+class com.example.mywins.Screen$Profile {
+}
+class com.example.mywins.Screen {
+}
+class com.example.mywins.ScreenRoute {
+}
+class com.example.mywins.MainScreenKt {
++ {static} void MainScreen(androidx.navigation.NavController)
++ {static} void GoalCard(com.example.mywins.database.goal.Goal,kotlin.jvm.functions.Function0<kotlin.Unit>,kotlin.jvm.functions.Function1<? super java.lang.Boolean,kotlin.Unit>)
++ {static} void FriendRequestPopup(java.util.List<com.example.mywins.database.friendships.FriendRequest>,kotlin.jvm.functions.Function1<? super com.example.mywins.database.friendships.FriendRequest,kotlin.Unit>,kotlin.jvm.functions.Function1<? super com.example.mywins.database.friendships.FriendRequest,kotlin.Unit>,kotlin.jvm.functions.Function0<kotlin.Unit>)
++ {static} long getColorForCategory(java.lang.String)
++ {static} java.lang.String getTodayDate()
+}
+
+class com.example.mywins.ExampleUnitTest {
++ void addition_isCorrect()
+}
+
+class com.example.mywins.ui.theme.ThemeKt {
+- {static} androidx.compose.material3.ColorScheme DarkColorScheme
+- {static} androidx.compose.material3.ColorScheme LightColorScheme
++ {static} void MyWinsTheme(boolean,boolean,kotlin.jvm.functions.Function0<kotlin.Unit>)
+}
+
+
+class com.example.mywins.StatisticsScreenKt {
++ {static} void StatisticsScreen(androidx.navigation.NavController)
++ {static} boolean wasDoneInPeriod(com.example.mywins.database.goal.Goal,java.time.LocalDate,java.time.LocalDate)
++ {static} int computeStreak(java.util.List<com.example.mywins.database.goal.Goal>)
++ {static} long categoryColor(java.lang.String)
++ {static} boolean isInPeriod(com.example.mywins.database.goal.Goal,java.time.LocalDate,java.time.LocalDate)
+}
+
+class com.example.mywins.database.user.UserRepository {
+-  userDao
++ void saveUser(User)
++ User? getUser(String)
+}
+
+
+interface com.example.mywins.database.user.UserDao {
++ {abstract}java.lang.Object insertUser(com.example.mywins.database.user.User,kotlin.coroutines.Continuation<? super kotlin.Unit>)
++ {abstract}java.lang.Object getUserByEmail(java.lang.String,kotlin.coroutines.Continuation<? super com.example.mywins.database.user.User>)
+}
+
+class com.example.mywins.database.comment.Comment {
+- int id
+- int eventId
+- java.lang.String userEmail
+- java.lang.String text
+- long timestamp
++ int getId()
++ int getEventId()
++ java.lang.String getUserEmail()
++ java.lang.String getText()
++ long getTimestamp()
++ int component1()
++ int component2()
++ java.lang.String component3()
++ java.lang.String component4()
++ long component5()
++ com.example.mywins.database.comment.Comment copy(int,int,java.lang.String,java.lang.String,long)
++ boolean equals(java.lang.Object)
++ int hashCode()
++ java.lang.String toString()
+}
+
+
+class com.example.mywins.database.comment.CommentDao_Impl {
+- RoomDatabase __db
+- EntityInsertAdapter<Comment> __insertAdapterOfComment
++ Object addComment(Comment,Continuation<? super Unit>)
++ Object getComments(int,Continuation<? super List<Comment>>)
++ {static} List<Class<?>> getRequiredConverters()
+}
+
+
+class com.example.mywins.database.friendships.FriendshipsDao_Impl {
+- RoomDatabase __db
+- EntityInsertAdapter<Friendship> __insertAdapterOfFriendship
++ Object addFriendship(Friendship,Continuation<? super Unit>)
++ Object getFriendsOfUser(String,Continuation<? super List<String>>)
++ Object removeFriendship(String,String,Continuation<? super Unit>)
++ {static} List<Class<?>> getRequiredConverters()
+}
+
+
+class com.example.mywins.database.friendships.FriendRequest {
+- java.lang.String fromEmail
+- java.lang.String toEmail
+- long timestamp
++ java.lang.String getFromEmail()
++ java.lang.String getToEmail()
++ long getTimestamp()
++ java.lang.String component1()
++ java.lang.String component2()
++ long component3()
++ com.example.mywins.database.friendships.FriendRequest copy(java.lang.String,java.lang.String,long)
++ boolean equals(java.lang.Object)
++ int hashCode()
++ java.lang.String toString()
+}
+
+
+interface com.example.mywins.database.friendships.FriendshipsDao {
++ void addFriendship(Friendship)
++ List<String> getFriendsOfUser(String)
++ void removeFriendship(String,String)
+}
+
+class com.example.mywins.BottomNavBarKt {
++ {static} void BottomNavBar(androidx.navigation.NavController)
+}
+
+class com.example.mywins.database.user.UserRepository {
+- com.example.mywins.database.user.UserDao userDao
++ java.lang.Object saveUser(com.example.mywins.database.user.User,kotlin.coroutines.Continuation<? super kotlin.Unit>)
++ java.lang.Object getUser(java.lang.String,kotlin.coroutines.Continuation<? super com.example.mywins.database.user.User>)
+}
+
+
+class com.example.mywins.database.activityEvent.ActivityEventDao_Impl {
+- RoomDatabase __db
+- EntityInsertAdapter<ActivityEvent> __insertAdapterOfActivityEvent
++ Object insertEvent(ActivityEvent,Continuation<? super Unit>)
++ Object getEventsFromFriends(List<String>,Continuation<? super List<ActivityEvent>>)
++ {static} List<Class<?>> getRequiredConverters()
+}
+
+
+interface com.example.mywins.database.comment.CommentDao {
++ {abstract}java.lang.Object addComment(com.example.mywins.database.comment.Comment,kotlin.coroutines.Continuation<? super kotlin.Unit>)
++ {abstract}java.lang.Object getComments(int,kotlin.coroutines.Continuation<? super java.util.List<com.example.mywins.database.comment.Comment>>)
+}
+
+interface com.example.mywins.database.friendships.FriendRequestDao {
++ {abstract}java.lang.Object sendRequest(com.example.mywins.database.friendships.FriendRequest,kotlin.coroutines.Continuation<? super kotlin.Unit>)
++ {abstract}java.lang.Object getReceivedRequests(java.lang.String,kotlin.coroutines.Continuation<? super java.util.List<com.example.mywins.database.friendships.FriendRequest>>)
++ {abstract}java.lang.Object deleteRequest(java.lang.String,java.lang.String,kotlin.coroutines.Continuation<? super kotlin.Unit>)
+}
+
+class com.example.mywins.database.null {
+}
+class com.example.mywins.database.null {
+}
+class com.example.mywins.database.null {
+}
+class com.example.mywins.database.null {
+}
+class com.example.mywins.database.null {
+}
+class com.example.mywins.database.null {
+}
+class com.example.mywins.database.null {
+}
+class com.example.mywins.database.AppDatabase$Companion {
+- AppDatabase? instance
++ AppDatabase getInstance(Context)
+}
+
+
+abstract class com.example.mywins.database.AppDatabase {
++ UserDao userDao()
++ GoalDao goalDao()
++ ActivityEventDao activityEventDao()
++ LikeDao likeDao()
++ CommentDao commentDao()
++ FriendshipsDao friendshipsDao()
++ FriendRequestDao friendRequestDao()
+}
+
+interface com.example.mywins.database.comment.CommentDao {
++ void addComment(Comment)
++ List<Comment> getComments(Int)
+}
+
+interface com.example.mywins.database.friendships.FriendRequestDao {
++ void sendRequest(FriendRequest)
++ List<FriendRequest> getReceivedRequests(String)
++ void deleteRequest(String,String)
+}
+
+class com.example.mywins.database.friendships.FriendRequest {
+}
+class com.example.mywins.BottomNavItem {
+}
+class com.example.mywins.database.like.Like {
+}
+class com.example.mywins.BottomNavItem {
+- java.lang.String label
+- androidx.compose.ui.graphics.vector.ImageVector icon
+- java.lang.Integer drawableRes
+- java.lang.String route
++ java.lang.String getLabel()
++ androidx.compose.ui.graphics.vector.ImageVector getIcon()
++ java.lang.Integer getDrawableRes()
++ java.lang.String getRoute()
++ java.lang.String component1()
++ androidx.compose.ui.graphics.vector.ImageVector component2()
++ java.lang.Integer component3()
++ java.lang.String component4()
++ com.example.mywins.BottomNavItem copy(java.lang.String,androidx.compose.ui.graphics.vector.ImageVector,java.lang.Integer,java.lang.String)
++ boolean equals(java.lang.Object)
++ int hashCode()
++ java.lang.String toString()
+}
+
+
+class com.example.mywins.friends.FriendsScreenKt {
++ {static} void FriendsScreen(androidx.navigation.NavController)
+}
+
+class com.example.mywins.ExampleInstrumentedTest {
++ void useAppContext()
+}
+
+class com.example.mywins.database.friendships.FriendRequestDao_Impl {
+- RoomDatabase __db
+- EntityInsertAdapter<FriendRequest> __insertAdapterOfFriendRequest
++ Object sendRequest(FriendRequest,Continuation<? super Unit>)
++ Object getReceivedRequests(String,Continuation<? super List<FriendRequest>>)
++ Object deleteRequest(String,String,Continuation<? super Unit>)
++ {static} List<Class<?>> getRequiredConverters()
+}
+
+
+interface com.example.mywins.database.goal.GoalDao {
++ void insert(Goal)
++ List<Goal> getAll()
++ Goal? getById(Int)
++ List<Goal> getAllForUser(String)
++ List<Goal> getDoneGoalsForUser(String)
++ List<Goal> getPendingGoalsForUser(String)
++ void update(Goal)
++ void delete(Goal)
+}
+
+class com.example.mywins.database.like.LikeDao_Impl {
+- RoomDatabase __db
+- EntityInsertAdapter<Like> __insertAdapterOfLike
++ Object addLike(Like,Continuation<? super Unit>)
++ Object getLikeCount(int,Continuation<? super Integer>)
++ Object hasUserLiked(int,String,Continuation<? super Like>)
++ {static} List<Class<?>> getRequiredConverters()
+}
+
+
+
+
+com.example.mywins.database.user.UserDao <|.. com.example.mywins.database.user.UserDao_Impl
+com.example.mywins.database.goal.GoalDao <|.. com.example.mywins.database.goal.GoalDao_Impl
+com.example.mywins.database.RoomDatabase <|-- com.example.mywins.database.AppDatabase
+com.example.mywins.database.AppDatabase +.. com.example.mywins.database.AppDatabase$Companion
+com.example.mywins.Screen +.. com.example.mywins.Screen$EditGoal
+com.example.mywins.Screen <|-- com.example.mywins.Screen$EditGoal
+com.example.mywins.Screen +.. com.example.mywins.Screen$Friends
+com.example.mywins.Screen <|-- com.example.mywins.Screen$Friends
+com.example.mywins.Screen +.. com.example.mywins.Screen$Login
+com.example.mywins.Screen <|-- com.example.mywins.Screen$Login
+com.example.mywins.Screen +.. com.example.mywins.Screen$Main
+com.example.mywins.Screen <|-- com.example.mywins.Screen$Main
+com.example.mywins.Screen +.. com.example.mywins.Screen$Profile
+com.example.mywins.Screen <|-- com.example.mywins.Screen$Profile
+com.example.mywins.Screen +.. com.example.mywins.Screen$SignUp
+com.example.mywins.Screen <|-- com.example.mywins.Screen$SignUp
+com.example.mywins.Screen +.. com.example.mywins.Screen$Statistics
+com.example.mywins.Screen <|-- com.example.mywins.Screen$Statistics
+com.example.mywins.database.goal.Serializable <|.. com.example.mywins.database.goal.Goal
+com.example.mywins.database.AppDatabase <|-- com.example.mywins.database.AppDatabase_Impl
+androidx.activity.ComponentActivity <|-- com.example.mywins.MainActivity
+com.example.mywins.ComponentActivity <|-- com.example.mywins.MainActivity
+com.example.mywins.Screen +.. com.example.mywins.Screen$Login
+com.example.mywins.Screen <|-- com.example.mywins.Screen$Login
+com.example.mywins.Screen +.. com.example.mywins.Screen$SignUp
+com.example.mywins.Screen <|-- com.example.mywins.Screen$SignUp
+com.example.mywins.Screen +.. com.example.mywins.Screen$Main
+com.example.mywins.Screen <|-- com.example.mywins.Screen$Main
+com.example.mywins.Screen +.. com.example.mywins.Screen$EditGoal
+com.example.mywins.Screen <|-- com.example.mywins.Screen$EditGoal
+com.example.mywins.Screen +.. com.example.mywins.Screen$Statistics
+com.example.mywins.Screen <|-- com.example.mywins.Screen$Statistics
+com.example.mywins.Screen +.. com.example.mywins.Screen$Friends
+com.example.mywins.Screen <|-- com.example.mywins.Screen$Friends
+com.example.mywins.Screen +.. com.example.mywins.Screen$Profile
+com.example.mywins.Screen <|-- com.example.mywins.Screen$Profile
+com.example.mywins.database.comment.CommentDao <|.. com.example.mywins.database.comment.CommentDao_Impl
+com.example.mywins.database.friendships.FriendshipsDao <|.. com.example.mywins.database.friendships.FriendshipsDao_Impl
+com.example.mywins.database.activityEvent.ActivityEventDao <|.. com.example.mywins.database.activityEvent.ActivityEventDao_Impl
+com.example.mywins.database.AppDatabase +.. com.example.mywins.database.AppDatabase$Companion
+androidx.room.RoomDatabase <|-- com.example.mywins.database.AppDatabase
+com.example.mywins.database.friendships.FriendRequestDao <|.. com.example.mywins.database.friendships.FriendRequestDao_Impl
+com.example.mywins.database.like.LikeDao <|.. com.example.mywins.database.like.LikeDao_Impl
+@enduml

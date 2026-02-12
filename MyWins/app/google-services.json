@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "967055661199",
+    "project_id": "projetofinal-f2b7a",
+    "storage_bucket": "projetofinal-f2b7a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:967055661199:android:88bea4de619145c60bf8fa",
+        "android_client_info": {
+          "package_name": "com.example.mywins"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgwndFSYoEBCDWHfrYpe3jZAj9JiCnYM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
