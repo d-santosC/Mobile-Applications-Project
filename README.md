@@ -142,8 +142,20 @@ The interface focuses on:
 
 # 📸 Screens Overview
 
-(Add screenshots here)
+## 🔐 Login Screen
+![Login Screen](screenshots/loginScreen.png)
 
+## 🏠 Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+## 📊 Statistics
+![Statistics](screenshots/statistics.png)
+
+## 👥 Friends Feed
+![Friends](screenshots/friendsActivity.png)
+
+## 👤 Profile
+![Profile](screenshots/profile.png)
 
 
 ---
