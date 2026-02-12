@@ -143,19 +143,19 @@ The interface focuses on:
 # 📸 Screens Overview
 
 ## 🔐 Login Screen
-![Login Screen](screenshots/loginScreen.png)
+![Login Screen](MyWins/screenshots/loginScreen.png)
 
 ## 🏠 Dashboard
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](MyWins/screenshots/dashboard.png)
 
 ## 📊 Statistics
-![Statistics](screenshots/statistics.png)
+![Statistics](MyWins/screenshots/statistics.png)
 
 ## 👥 Friends Feed
-![Friends](screenshots/friendsActivity.png)
+![Friends](MyWins/screenshots/friendsActivity.png)
 
 ## 👤 Profile
-![Profile](screenshots/profile.png)
+![Profile](MyWins/screenshots/profile.png)
 
 
 ---
