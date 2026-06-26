@@ -1,4 +1,4 @@
-# 📱 MyWins – Goal Tracking & Social Productivity App  
+# MyWins – Goal Tracking & Social Productivity App  
 ### Mobile Applications – Android Project
 ### Desenvolvimento de Aplicações Móveis – ISEL
 
@@ -6,18 +6,18 @@ MyWins is an Android application designed to transform personal goal management 
 
 Instead of being just another habit tracker, MyWins combines:
 
-- 🎯 Personal goal tracking  
-- 🔥 Streak-based motivation  
-- 📊 Progress analytics  
-- 👥 Social interaction  
+- Personal goal tracking  
+- Streak-based motivation  
+- Progress analytics  
+- Social interaction  
 
 The goal is to reduce goal abandonment by providing visual feedback, gamification mechanisms and social reinforcement.
 
 ---
 
-# 🚀 Features
+# Features
 
-## 🔐 Authentication
+## Authentication
 
 - User registration via email
 - Secure login using Firebase Authentication
@@ -25,14 +25,14 @@ The goal is to reduce goal abandonment by providing visual feedback, gamificatio
 
 ---
 
-## 🎯 Goal Management
+## Goal Management
 
 Users can:
 
 - Create new goals
 - Define:
   - Category (health, hobbies, productivity, etc.)
-  - Frequency (daily / weekly / custom)
+  - Frequency (daily/weekly/custom)
   - Visibility (public or private)
 - Edit or delete goals
 - Mark goals as completed
@@ -40,20 +40,20 @@ Users can:
 
 ---
 
-## 📊 Progress & Statistics
+## Progress & Statistics
 
 The app generates automatic statistics based on user activity:
 
-- 🔥 Consecutive completion streaks
-- 📈 Completion percentages
-- 📅 Weekly / Monthly / Yearly analysis
-- 📊 Category-based distribution charts
+- Consecutive completion streaks
+- Completion percentages
+- Weekly/Monthly/Yearly analysis
+- Category-based distribution charts
 
 This allows users to visually monitor their evolution over time.
 
 ---
 
-## 👥 Social Features
+## Social Features
 
 MyWins includes a fully integrated social layer:
 
@@ -68,7 +68,7 @@ Every time a user creates or completes a public goal, an `ActivityEvent` is gene
 
 ---
 
-# 🏗️ Architecture
+# Architecture
 
 The application was developed using modern Android technologies:
 
@@ -86,7 +86,7 @@ The architecture separates:
 
 ---
 
-# 🧠 Database Design
+# Database Design
 
 The relational database (implemented using Room) models both personal and social dimensions.
 
@@ -114,7 +114,7 @@ This structure enables both productivity tracking and social interaction in a sc
 
 ---
 
-# 🎨 UI & Design Process
+# UI & Design Process
 
 The design followed an iterative process:
 
@@ -140,27 +140,27 @@ The interface focuses on:
 
 ---
 
-# 📸 Screens Overview
+# Screens Overview
 
-## 🔐 Login Screen
+## Login Screen
 ![Login Screen](MyWins/screenshots/loginScreen.png)
 
-## 🏠 Dashboard
+## Dashboard
 ![Dashboard](MyWins/screenshots/dashboard.png)
 
-## 📊 Statistics
+## Statistics
 ![Statistics](MyWins/screenshots/statistics.png)
 
-## 👥 Friends Feed
+## Friends Feed
 ![Friends](MyWins/screenshots/friendsActivity.png)
 
-## 👤 Profile
+## Profile
 ![Profile](MyWins/screenshots/profile.png)
 
 
 ---
 
-# 📈 Technical Highlights
+# Technical Highlights
 
 - Declarative UI using Jetpack Compose
 - Room relational modeling with foreign keys
@@ -172,7 +172,7 @@ The interface focuses on:
 
 ---
 
-# 🧩 What I Learned
+# What I Learned
 
 - Designing mobile-first user experiences
 - Implementing relational data modeling in Android
@@ -183,7 +183,7 @@ The interface focuses on:
 
 ---
 
-# 🔮 Future Improvements
+# Future Improvements
 
 - Push notifications
 - Cloud synchronization (Firestore)
